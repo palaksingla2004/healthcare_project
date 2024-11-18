@@ -158,6 +158,7 @@ const path = require('path');
 const hbs = require('hbs');
 const fs = require('fs');
 
+
 // Load environment variables from .env file
 dotenv.config();
 
@@ -210,7 +211,7 @@ app.get('/home', async (req, res) => {
     try {
         const files = await File.find(); // Fetch all uploaded files from MongoDB
         res.render('home', {
-            username: 'Gracy',
+            username: 'Palak',
             users: [
                 { name: 'John Doe', age: 30 },
                 { name: 'Jane Smith', age: 25 }
@@ -264,7 +265,7 @@ app.get('/uploads/:filename', (req, res) => {
 });
 
 // Import and use additional routes
-app.use('/api/', require('../Routes/userRoutes'));
+app.use('/api/', require('./routes/userRoutes'));
 app.use('/api/details', require('./Routes/doctorDetails'));
 
 // Error handling middleware
